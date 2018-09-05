@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ListaVIP</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+	<div class="container">
+
+		<div id="listaDeInteressados">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Curso</th>
+						<th>Telefone</th>
+					</tr>
+				</thead>
+				<tr th:each="interessado : ${interessados}">
+					<td><span th:text="${interessado.nome}"></span></td>
+					<td><span th:text="${interessado.curso}"></span></td>
+					<td><span th:text="${interessado.telefone}"></span></td>
+				</tr>
+
+			</table>
+		</div>
+		
+		<hr/>
+
+		<form action="salvar" method="post">
+			<div class="form-group">
+				<label for="nome">Nome completo</label> <input type="text"
+					class="form-control" id="nome" name="nome" placeholder="Nome" />
+			</div>
+			<div class="form-group">
+				<label for="curso">Curso</label> <input type="text"
+					class="form-control" id="curso" name="curso" placeholder="Curso" />
+			</div>
+			<div class="form-group">
+				<label for="telefone">Telefone</label> <input
+					type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" />
+			</div>
+			<button type="submit" class="btn-success">Salvar</button>
+		</form>
+
+	</div>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>
